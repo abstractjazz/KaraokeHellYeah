@@ -2,6 +2,8 @@ require 'open-uri'
 
 require 'nokogiri'
 
+require 'httparty'
+
 require 'pry'
 
 require_relative "./KaraokeHellYeah/version"
