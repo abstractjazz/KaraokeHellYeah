@@ -1,0 +1,2 @@
+class KaraokeHellYeah::Songs 
+end 

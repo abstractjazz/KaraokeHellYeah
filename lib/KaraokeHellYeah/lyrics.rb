@@ -1,4 +1,4 @@
-class Lyrics
+class KaraokeHellYeah::Lyrics
 
 def initialize
 
