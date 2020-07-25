@@ -16,17 +16,13 @@ binding.pry
 
   def get_user_song
   #list_songs
-
-    @songs.each.with_index() do  |index, month|
-
-    puts "#{index +1}", "#{month}"
-
-    end
+    @songs.each.with_index() do  |song, index|
+    puts "#{index +1}", "#{song}"
+ end
 
 def list_months
   @months.each_with_index do |month, index|
     puts "#{index}", "#{month}"
-    
   end
 end
 
