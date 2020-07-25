@@ -5,21 +5,33 @@ class KaraokeHellYeah::CLI
     Enter 1-10 to see the lyrics to your new favorite song ;)."
     #get_lyrics_for(song)
     #list_lyrics
+    get_top_songs
   end
 
-  def get_top_songs(rank, title, artist)
+  def get_top_songs
     #to be scraped
-    @songs = {rank => "1", title => "butter", artist => "me"}
-    @songs
+    @songs = ['Ballin', "FunkFlex", "Jazz","Coldstone"]
   end
-  binding.pry
+binding.pry
 
   def get_user_song
-    songs = ['']
-  end
+  #list_songs
 
-  def list_songs
-    songs = ['']
-    songs
+    @songs.each.with_index() do  |index, month|
+
+    puts "#{index +1}", "#{month}"
+
+    end
+
+def list_months
+  @months.each_with_index do |month, index|
+    puts "#{index}", "#{month}"
+    
   end
 end
+
+#   def list_songs
+#     songs = ['']
+#     songs
+#   end
+# end
