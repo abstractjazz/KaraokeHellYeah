@@ -35,6 +35,12 @@ class KaraokeHellYeah::CLI
   def get_lyrics_for(chosen_song)
   song = @songs[chosen_song -1]
   puts "Here are the lyrics to #{song}"
+  
+   ##To implement 
+  # GeniusSongs::Songs.all.each.with_index(1) do |song|
+  # puts song.name
+  #end 
+  #get_user_song 
   binding.pry 
   end 
 end 
