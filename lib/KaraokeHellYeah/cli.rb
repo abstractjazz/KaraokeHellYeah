@@ -4,7 +4,7 @@ class KaraokeHellYeah::CLI
       puts "\nWelcome to KaraokeHellYeah. These are the top ten songs on Genius.com\n"
     get_top_songs
     list_songs
-    get_lyrics_for
+    get_user_song
     end
 
     def get_top_songs
@@ -21,18 +21,24 @@ class KaraokeHellYeah::CLI
   end
 
 
-    def get_lyrics_for 
-    chosen_song = gets.strip
-    binding.pry
-   #if valid_input(chosen_song.to_i, @songs)
-   #end
-    end 
- 
+    def get_user_song 
+    chosen_song = gets.strip.to_i
+    get_lyrics_for(chosen_song) if valid_input(chosen_song, @songs)
+   end
+
     
-    def valid_input (user_input, top_songs_list)
-    user_input.to_i <= @songs.length && user_input.to_i > 0
+    def valid_input (user_input, data)
+    user_input.to_i <= data.length && user_input.to_i > 0
     end
+
+
+  def get_lyrics_for(chosen_song)
+  song = @songs[chosen_song -1]
+  puts "Here are the lyrics to #{song}"
+  binding.pry 
   end 
+end 
+
 
 
     #   #puts "Only the hits! Choose a number from 1-10."
