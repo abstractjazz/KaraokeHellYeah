@@ -12,9 +12,10 @@ class KaraokeHellYeah::Songs
   end 
 
   def self.all
-
+  
+  KaraokeHellYeah::Scraper.scrape_songs if @@all.empty? 
   @@all 
-
+  
   end 
   
   def save 
