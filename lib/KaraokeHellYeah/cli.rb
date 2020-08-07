@@ -19,6 +19,7 @@ class KaraokeHellYeah::CLI
       @songs.each.with_index(1) do |song, index|
         #binding.pry
         puts "#{index}. #{song.name}"
+  
     end
   end
 

@@ -1,13 +1,13 @@
 class KaraokeHellYeah::Songs 
   
   @@all = []
-  attr_accessor :name, :artist 
+  attr_accessor :name
 
 
-  def initialize(name, artist)
+ def initialize(name)
   
   @name = name 
-  @artist = artist 
+
   save
   end 
 
@@ -16,7 +16,7 @@ class KaraokeHellYeah::Songs
   KaraokeHellYeah::Scraper.scrape_songs if @@all.empty? 
   @@all 
   
-  end 
+end 
   
   def save 
     
