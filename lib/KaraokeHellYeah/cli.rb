@@ -9,8 +9,8 @@ class KaraokeHellYeah::CLI
 
     def get_top_songs
       #to be scraped
-      KaraokeHellYeah::Songs.new("Cool", "Asap")
-      KaraokeHellYeah::Songs.new("Okay", "Frank Ocean")
+      # KaraokeHellYeah::Songs.new("Cool", "Asap")
+      # KaraokeHellYeah::Songs.new("Okay", "Frank Ocean")
       @songs = KaraokeHellYeah::Songs.all 
     end
 
