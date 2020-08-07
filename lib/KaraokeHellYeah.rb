@@ -14,3 +14,5 @@ require_relative "./KaraokeHellYeah/lyrics"
 
 require_relative "./KaraokeHellYeah/scraper"
 
+require_relative "./KaraokeHellYeah/songs"
+

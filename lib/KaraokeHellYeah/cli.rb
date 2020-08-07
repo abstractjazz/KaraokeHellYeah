@@ -9,7 +9,7 @@ class KaraokeHellYeah::CLI
 
     def get_top_songs
       #to be scraped
-      @songs = ['Ballin', "FunkFlex", "Jazz", "Coldstone","Gutter", "Ricecake", "Cookies", "My Juul", "Heart Tales", "That one song"]
+      @songs = KaraokeHellYeah::Songs.all 
     end
 
     def list_songs
@@ -41,7 +41,7 @@ class KaraokeHellYeah::CLI
   # puts song.name
   #end 
   #get_user_song 
-  binding.pry 
+  # binding.pry 
   end 
 end 
 
