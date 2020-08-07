@@ -1,12 +1,25 @@
 class KaraokeHellYeah::Songs 
-
-@@all = ["big","apple", "pie"]
-
-def self.all
-
-@@all 
-
-end 
+  
+  @@all = []
+  attr_accessor :name, :artist 
 
 
+  def initialize(name, artist)
+  
+  @name = name 
+  @artist = artist 
+  save
+  end 
+
+  def self.all
+
+  @@all 
+
+  end 
+  
+  def save 
+    
+  @@all << self
+  
+  end 
 end 

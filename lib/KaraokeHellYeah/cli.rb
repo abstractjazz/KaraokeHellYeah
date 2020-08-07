@@ -9,6 +9,8 @@ class KaraokeHellYeah::CLI
 
     def get_top_songs
       #to be scraped
+      KaraokeHellYeah::Songs.new("Cool", "Asap")
+      KaraokeHellYeah::Songs.new("Okay", "Frank Ocean")
       @songs = KaraokeHellYeah::Songs.all 
     end
 
@@ -16,7 +18,7 @@ class KaraokeHellYeah::CLI
       puts "Type a number 1-10 & get the lyrics to your new favorite song."
       @songs.each.with_index(1) do |song, index|
         #binding.pry
-        puts "#{index}. #{song}"
+        puts "#{index}. #{song.name}"
     end
   end
 
@@ -34,7 +36,7 @@ class KaraokeHellYeah::CLI
 
   def get_lyrics_for(chosen_song)
   song = @songs[chosen_song -1]
-  puts "Here are the lyrics to #{song}"
+  puts "Here are the lyrics to #{song.name}"
   
    ##To implement 
   # GeniusSongs::Songs.all.each.with_index(1) do |song|
