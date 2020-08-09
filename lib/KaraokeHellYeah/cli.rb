@@ -18,7 +18,7 @@ class KaraokeHellYeah::CLI
       puts "Type a number 1-10 & get the lyrics to your new favorite song."
       @songs.each.with_index(1) do |song, index|
         #binding.pry
-        puts "#{index}. #{song.name}"
+        puts "#{index}. #{song.name} - #{song.artist}"
   
     end
   end

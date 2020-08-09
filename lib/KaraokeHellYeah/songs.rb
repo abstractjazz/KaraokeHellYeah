@@ -1,12 +1,13 @@
 class KaraokeHellYeah::Songs 
   
   @@all = []
-  attr_accessor :name
+  attr_accessor :name, :artist 
 
 
- def initialize(name)
+ def initialize(name, artist)
   
-  @name = name 
+  @name = name
+  @artist = artist 
 
   save
   end 
