@@ -2,12 +2,13 @@ class KaraokeHellYeah::Scraper
 
   def self.scrape_songs
     page = Nokogiri::HTML(open("https://genius.com/#top-songs")) 
-    chosen_song = gets.strip.to_i
+    # chosen_song = gets.strip.to_i
+    lyric_selector = gets.strip.to_i - 1
     
     @songs = page.css(".ChartSongdesktop__Title-sc-18658hh-3")
     @artists = page.css(".ChartSongdesktop__Artist-sc-18658hh-5")
-    @url = page.css("div#top-songs a")[chosen_song]["href"]
-    binding.pry
+    @url = page.css("div#top-songs a")[lyric_selector]["href"]
+    # binding.pry
   
     @songs.zip @artists
     @songs.zip(@artists).each do |song, artist|
