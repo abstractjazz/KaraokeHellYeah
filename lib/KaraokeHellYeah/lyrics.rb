@@ -1,31 +1,29 @@
 class KaraokeHellYeah::Lyrics
-
-class KaraokeHellYeah::Songs 
-  
-  @@all = []
-  attr_accessor :name, :artist 
-
-
- def initialize()
-  
-  @name = name
-  @artist = artist 
-
-  save
-  end 
-
-  def self.all
-  
-  KaraokeHellYeah::Scraper.scrape_songs if @@all.empty? 
-  @@all 
-  
 end 
+#   attr_accessor :name, :artist 
+
+
+# def initialize()
   
-  def save 
+#   @name = name
+#   @artist = artist 
+
+#   save
+#   end 
+
+#   def self.selected
+  
+#   KaraokeHellYeah::Scraper.scrape_lyrics if @@all.empty? 
+ 
+#   @@all 
+  
+# end 
+  
+#   def save 
     
-  @@all << self
+#   @@all << self
   
-  end 
-end 
+#   end 
+# end 
 
 #page.css("div#top-songs a")[0]["href"]

@@ -15,11 +15,10 @@ class KaraokeHellYeah::CLI
     end
 
     def list_songs
-      puts "Type a number 1-10 & get the lyrics to your new favorite song."
+      puts "Type a number 1-10 & get the lyrics to your new favorite song.\n" 
       @songs.each.with_index(1) do |song, index|
         #binding.pry
-        puts "#{index}. #{song.name} - #{song.artist}"
-  get_lyrics_for(chosen_song)
+        puts "\n#{index}. #{song.name} - #{song.artist}"
     end
   end
 
@@ -38,6 +37,8 @@ class KaraokeHellYeah::CLI
   def get_lyrics_for(chosen_song)
   song = @songs[chosen_song -1]
   puts "Here are the lyrics to #{song.name}"
+  @lyrics = KaraokeHellYeah::Scraper.lyrics  
+  puts @lyrics 
   
    ##To implement 
   # GeniusSongs::Songs.all.each.with_index(1) do |song|
