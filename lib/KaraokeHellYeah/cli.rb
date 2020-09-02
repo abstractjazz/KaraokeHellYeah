@@ -24,15 +24,21 @@ class KaraokeHellYeah::CLI
 
 
     def get_user_song 
-    chosen_song = gets.strip.to_i
-    get_lyrics_for(chosen_song) if valid_input(chosen_song, @songs)
+    @url = KaraokeHellYeah::Scraper.scrape_lyrics
+   # chosen_song = gets.strip.to_i
+    # get_lyrics_for(chosen_song) if valid_input(chosen_song, @songs)
+   
+    input = gets.strip.to_i
+    @url.each do |input|
+    puts @url   
+    
    end
+ end 
 
     
     def valid_input (user_input, data)
     user_input.to_i <= data.length && user_input.to_i > 0
     end
-
 
   def get_lyrics_for(chosen_song)
   song = @songs[chosen_song -1]
