@@ -25,17 +25,10 @@ class KaraokeHellYeah::CLI
 
     def get_user_song 
     @url = KaraokeHellYeah::Scraper.scrape_lyrics
-   # chosen_song = gets.strip.to_i
-    # get_lyrics_for(chosen_song) if valid_input(chosen_song, @songs)
-   
-    input = gets.strip.to_i
-    @url.each do |input|
-    puts @url   
-    
+    chosen_song = gets.strip.to_i
+   get_lyrics_for(chosen_song) if valid_input(chosen_song, @songs)
    end
- end 
 
-    
     def valid_input (user_input, data)
     user_input.to_i <= data.length && user_input.to_i > 0
     end
@@ -43,31 +36,11 @@ class KaraokeHellYeah::CLI
   def get_lyrics_for(chosen_song)
   song = @songs[chosen_song -1]
   puts "Here are the lyrics to #{song.name}"
-  @lyrics = KaraokeHellYeah::Scraper.lyrics  
-  puts @lyrics 
-  
-   ##To implement 
-  # GeniusSongs::Songs.all.each.with_index(1) do |song|
-  # puts song.name
-  #end 
-  #get_user_song 
-  # binding.pry 
-  end 
+  @lyrics = KaraokeHellYeah::Scraper.scrape_lyrics  
+  @url = @lyrics[chosen_song-1]
+  page = Nokogiri::HTML(open(@url))
+  puts page.css(".lyrics").text
+  end
 end 
-
-
-
-    #   #puts "Only the hits! Choose a number from 1-10."
-    # end
-#     def valid_input(input, data)
-#   input.to_i <= data.length && input.to_i > 0
-#   end
-# end
  
 
-
-#   def list_songs
-#     songs = ['']
-#     songs
-#   end
-# end

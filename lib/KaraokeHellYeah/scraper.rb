@@ -21,7 +21,7 @@ class KaraokeHellYeah::Scraper
   def self.scrape_lyrics
   page = Nokogiri::HTML(open("https://genius.com/#top-songs")) 
   @url = page.css('div#top-songs a').map {|link| link['href']}
-  # puts page.css(".lyrics").text
+  #page.css(".lyrics").text
   end 
     
     
