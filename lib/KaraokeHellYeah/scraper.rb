@@ -19,10 +19,10 @@ class KaraokeHellYeah::Scraper
   def self.scrape_lyrics
   page = Nokogiri::HTML(open("https://genius.com/#top-songs")) 
   @url = page.css('div#top-songs a').map {|link| link['href']}
-  user_selection = KaraokeHellYeah::CLI.chosen_song
-  @print_lyrics = @url[user_selection -1]
-  scrape_2 = Nokogiri::HTML(open(@print_lyrics))
-  puts scrape_2.css(".lyrics").text
+  # user_selection = KaraokeHellYeah::CLI.chosen_song
+  # @print_lyrics = @url[user_selection -1]
+  # scrape_2 = Nokogiri::HTML(open(@print_lyrics))
+  # puts scrape_2.css(".lyrics").text
   end 
     
    
