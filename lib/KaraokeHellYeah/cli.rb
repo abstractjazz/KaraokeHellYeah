@@ -1,7 +1,7 @@
 class KaraokeHellYeah::CLI
 
     def call
-      puts "\nWelcome to KaraokeHellYeah. These are the top ten songs on Genius.com\n"
+      puts "\nWelcome to KaraokeHellYeah. Press enter to see the top ten songs on Genius.com\n"
     get_top_songs
     list_songs
     get_user_song
@@ -9,6 +9,7 @@ class KaraokeHellYeah::CLI
     
     def get_top_songs
    @songs = KaraokeHellYeah::Songs.all 
+   @url = KaraokeHellYeah::Scraper.scrape_lyrics
     end
 
     def list_songs
