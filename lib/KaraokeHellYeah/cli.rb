@@ -2,40 +2,45 @@ class KaraokeHellYeah::CLI
 
     def call
       puts "\nWelcome to KaraokeHellYeah. These are the top ten songs on Genius.com\n"
+      sleep 2
     get_top_songs
     list_songs
     get_user_song
     end
 
     def get_top_songs
-      #to be scraped
-      # KaraokeHellYeah::Songs.new("Cool", "Asap")
-      # KaraokeHellYeah::Songs.new("Okay", "Frank Ocean")
       @songs = KaraokeHellYeah::Songs.all 
     end
 
     def list_songs
-      puts "Type a number 1-10 & get the lyrics to your new favorite song.\n" 
+      puts "\nType a number 1-10 & get the lyrics to your new favorite song.\n" 
+      sleep 3
       @songs.each.with_index(1) do |song, index|
-        #binding.pry
         puts "\n#{index}. #{song.name} - #{song.artist} #{song.url}"
     end
   end
 
 
-    def get_user_song 
-    @url = KaraokeHellYeah::Scraper.scrape_lyrics
-    chosen_song = gets.strip.to_i
-   get_lyrics_for(chosen_song) if valid_input(chosen_song, @songs)
-   end
+  def get_user_song 
+  @url = KaraokeHellYeah::Scraper.scrape_lyrics
+  chosen_song = gets.strip.to_i
+  if chosen_song <= 10 && chosen_song  >= 0
+  get_lyrics_for(chosen_song)
+  else puts "Only the hits! Choose a number from 1-10."
+   get_top_songs
+   list_songs
+   get_user_song
+ end
+ end 
 
-    def valid_input (user_input, data)
-    user_input.to_i <= data.length && user_input.to_i > 0
+    def valid_input (user_input, songs)
+    user_input.to_i <= songs.length && user_input.to_i > 0
     end
 
   def get_lyrics_for(chosen_song)
   song = @songs[chosen_song -1]
-  puts "Here are the lyrics to #{song.name}"
+  puts "Here ya go –– the lyrics to #{song.name}"
+  sleep 3
   @lyrics = KaraokeHellYeah::Scraper.scrape_lyrics  
   @url = @lyrics[chosen_song-1]
   page = Nokogiri::HTML(open(@url))
