@@ -33,7 +33,6 @@ class KaraokeHellYeah::CLI
   get_lyrics_for(chosen_song)
   chosen_song
  end
-
  end
  
 
@@ -45,10 +44,9 @@ class KaraokeHellYeah::CLI
   song = @songs[chosen_song -1]
   puts "Here ya go –– the lyrics to #{song.name}"
   sleep 2
-  @lyrics = KaraokeHellYeah::Scraper.scrape_lyrics  
-  @url = @lyrics[chosen_song -1]
-  page = Nokogiri::HTML(open(@url))
-  puts page.css(".lyrics").text
+  user_selection = @chosen_song
+  lyrics = KaraokeHellYeah::Scraper.scrape_lyrics(user_selection)
+  puts lyrics
   puts "Would you like the lyrics to another song? (y/n)?"
   user_input = gets.strip
   if user_input == "y"
