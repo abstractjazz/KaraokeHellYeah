@@ -16,7 +16,7 @@ class KaraokeHellYeah::CLI
  puts "\nType a number 1-10 & get the lyrics to your new favorite song.\n" 
  sleep 3
  @songs.each.with_index(1) do |song, index|
- puts "\n#{index}. #{song.name} - #{song.artist} #{song.url}"
+ puts "\n#{index}. #{song.name} - #{song.artist}"
  end
 end
 
@@ -30,15 +30,9 @@ chosen_song = @chosen_song
   get_user_song
   else 
   get_lyrics_for(chosen_song)
-  chosen_song
   end
  end
  
-
- def valid_input (user_input, songs)
- user_input.to_i <= songs.length && user_input.to_i > 0
- end
-
  def get_lyrics_for(chosen_song)
  song = @songs[chosen_song -1]
  puts "Here ya go –– the lyrics to #{song.name}"

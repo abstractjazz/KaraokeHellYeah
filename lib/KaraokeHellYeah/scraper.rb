@@ -8,13 +8,13 @@ class KaraokeHellYeah::Scraper
  @songs.zip(@artists).each do |song, artist|
  name = song.text
  artist = artist.text
- KaraokeHellYeah::Songs.new(name,artist,@url)
+ KaraokeHellYeah::Songs.new(name,artist)
  end
     
  def self.scrape_lyrics(user_selection)
   page = Nokogiri::HTML(open("https://genius.com/#top-songs")) 
-  @url = page.css('div#top-songs a').map {|link| link['href']}
-  print_lyrics = @url[user_selection - 1]
+  url = page.css('div#top-songs a').map {|link| link['href']}
+  print_lyrics = url[user_selection - 1]
   scrape_2 = Nokogiri::HTML(open(print_lyrics))
   puts scrape_2.css(".lyrics").text
   end 
