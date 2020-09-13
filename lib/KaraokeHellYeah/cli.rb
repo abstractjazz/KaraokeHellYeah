@@ -22,17 +22,20 @@ class KaraokeHellYeah::CLI
 
 
   def get_user_song 
-  @url = KaraokeHellYeah::Scraper.scrape_lyrics
-  chosen_song = gets.strip.to_i
-  if chosen_song > 10 || chosen_song  < 1
+  @chosen_song = gets.strip.to_i
+  chosen_song = @chosen_song
+  if chosen_song > 10 || chosen_song < 1
   puts "Only the hits! Choose a number from 1-10."
    get_top_songs
    list_songs
    get_user_song
   else 
   get_lyrics_for(chosen_song)
+  chosen_song
  end
- end 
+
+ end
+ 
 
     def valid_input (user_input, songs)
     user_input.to_i <= songs.length && user_input.to_i > 0
@@ -55,7 +58,7 @@ class KaraokeHellYeah::CLI
  elsif user_input =="n"
  puts "Later!"
  elsif user_input != "y" || "n" 
- puts "Sorry. Too busy jammin to understand. Press Y for more songs or any other ke to exit."
+ puts "Sorry. Too busy jammin to understand. Press Y for more songs or any other key to exit."
  user_input = gets.strip
  if user_input == "y"
    get_top_songs
