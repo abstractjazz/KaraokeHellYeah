@@ -3,26 +3,19 @@ class KaraokeHellYeah::Songs
   @@all = []
   attr_accessor :name, :artist, :url 
 
-
  def initialize(name, artist, url)
-  
   @name = name
   @artist = artist 
   @url = url 
-
   save
-  end 
+ end 
 
-  def self.all
-  
+ def self.all
   KaraokeHellYeah::Scraper.scrape_songs if @@all.empty? 
   @@all 
+ end 
   
-end 
-  
-  def save 
-    
+ def save 
   @@all << self
-  
   end 
 end 
