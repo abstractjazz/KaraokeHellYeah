@@ -48,7 +48,7 @@ chosen_song = @chosen_song
     get_user_song
     elsif user_input =="n"
     puts "Later!"
-    elsif user_input != "y" || "n" 
+    elsif user_input != "y" || user_input !=  "n" 
     puts "Sorry. Too busy jammin to understand. Press y for more songs or any other key to exit."
     user_input = gets.strip
       if user_input == "y"
