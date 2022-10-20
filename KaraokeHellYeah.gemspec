@@ -38,6 +38,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry", "~> 0.13.1"
-  spec.add_dependency "nokogiri", "~> 1.10.10"
+  spec.add_dependency "nokogiri", ">= 1.10.10", "< 1.14.0"
   spec.add_dependency "httparty", "~> 0.18.1"
 end
